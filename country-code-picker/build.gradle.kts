@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.packaging.fromProjectProperties
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -60,13 +62,23 @@ afterEvaluate {
             register<MavenPublication>("release") {
                 groupId = "com.github.ayeshdon"
                 artifactId = "country_code_picker"
-                version = "1.0"
+                version = "1.2"
 
-                afterEvaluate {
-                    from(components["release"])
-                }
             }
         }
     }
 }
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                from components.release
+//
+//                        groupId = 'com.github.philipplackner'
+//                artifactId = 'image-preview-compose'
+//                version = '1.0'
+//            }
+//        }
+//    }
+//}
 
